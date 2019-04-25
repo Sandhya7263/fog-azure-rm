@@ -24,6 +24,7 @@ module Fog
           vm = Azure::ARM::Compute::Models::VirtualMachine.new
           vm.location = vm_config[:location]
           vm.tags = vm_config[:tags]
+          vm.zones = vm_config[:zones]
           vm.availability_set = get_vm_availability_set(vm_config[:availability_set_id])
           vm.hardware_profile = get_hardware_profile(vm_config[:vm_size])
           vm.os_profile = get_os_profile(vm_config)

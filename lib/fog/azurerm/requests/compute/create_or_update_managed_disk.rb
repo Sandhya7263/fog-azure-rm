@@ -27,6 +27,7 @@ module Fog
           managed_disk.os_type = managed_disk_params[:os_type]
           managed_disk.disk_size_gb = managed_disk_params[:disk_size_gb]
           managed_disk.tags = managed_disk_params[:tags] if managed_disk.tags.nil?
+          managed_disk.zones =  managed_disk_params[:zones]
 
           creation_data = managed_disk_params[:creation_data]
           managed_disk.creation_data = get_creation_data_object(creation_data) unless creation_data.nil?

@@ -37,6 +37,7 @@ module Fog
         attribute :platform_update_domain
         attribute :platform_fault_domain
         attribute :image_ref
+        attribute :zones
 
         def self.parse(vm)
           hash = {}
@@ -87,7 +88,7 @@ module Fog
           hash['network_interface_card_ids'] = vm.network_profile.network_interfaces.map(&:id)
           hash['availability_set_id'] = vm.availability_set.id unless vm.availability_set.nil?
           hash['tags'] = vm.tags
-
+          hash['zones'] = vm.zones
           unless vm.instance_view.nil?
             hash['platform_update_domain'] = vm.instance_view.platform_update_domain
             hash['platform_fault_domain'] = vm.instance_view.platform_fault_domain

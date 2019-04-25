@@ -18,7 +18,8 @@ module Fog
         attribute :creation_data
         attribute :os_type
         attribute :encryption_settings
-
+        attribute :zones     
+   
         def self.parse(managed_disk)
           disk = get_hash_from_object(managed_disk)
 
@@ -70,7 +71,8 @@ module Fog
             disk_size_gb: disk_size_gb,
             tags: tags,
             creation_data: creation_data,
-            encryption_settings: encryption_settings
+            encryption_settings: encryption_settings,
+            zones: zones
           }
         end
 
